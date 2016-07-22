@@ -1,3 +1,68 @@
+" General settings
+set number
+
+set showcmd
+
+set autoread
+
+set smartcase
+
+set fileencodings=utf-8,sjis,cp936,gb18030,big5,cp1251,euc-jp,latin1
+
+set title
+
+set pastetoggle=<F10>
+
+set colorcolumn=81
+
+" Clipboard
+set clipboard+=unnamedplus
+
+let mapleader=","
+
+" Tab key setup
+set tabstop=4 shiftwidth=4
+" Different tab of filetypes
+autocmd FileType c,cpp setl tabstop=2 shiftwidth=2 expandtab
+
+" Multibyte
+if has('multi_byte')
+  " set listchars=trail:·,tab:\|\ ,eol:¶,extends:→,precedes:←,nbsp:×
+  set listchars=trail:·,tab:\·\ ,extends:→,precedes:←,nbsp:×
+  set list
+  " Vertical split chars
+  set fillchars=stl:\ ,stlnc:\ ,vert:│
+  if has('patch-7.4.338')
+    let &sbr = nr2char(8618).' ' " Show ↪ at the beginning of wrapped lines
+    set breakindent
+    set breakindentopt=sbr
+  endif
+endif
+
+" split windows
+noremap <leader>s <C-w>v<C-w>l
+" move between windows
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+
+" Tab navigation
+nnoremap th  :tabfirst<CR>
+nnoremap tj  :tabnext<CR>
+nnoremap tk  :tabprev<CR>
+nnoremap tl  :tablast<CR>
+nnoremap tt  :tabedit<Space>
+nnoremap tn  :tabnew<CR>
+nnoremap tm  :tabm<Space>
+nnoremap td  :tabclose<CR>
+" Alternatively use
+"nnoremap th :tabnext<CR>
+"nnoremap tl :tabprev<CR>
+"nnoremap tn :tabnew<CR>
+
+
 "Plugins List
 call plug#begin('~/.config/nvim/plugged')
 
@@ -126,69 +191,6 @@ Plug 'zchee/deoplete-clang'
 Plug 'zchee/deoplete-jedi'
 call plug#end()
 
-" General settings
-set number
-
-set showcmd
-
-set autoread
-
-set smartcase
-
-set fileencodings=utf-8,sjis,cp936,gb18030,big5,cp1251,euc-jp,latin1
-
-set title
-
-set pastetoggle=<F10>
-
-set colorcolumn=81
-
-" Clipboard
-set clipboard+=unnamedplus
-
-let mapleader=","
-
-" Tab key setup
-set tabstop=4 shiftwidth=4
-" Different tab of filetypes
-autocmd FileType c,cpp setl tabstop=2 shiftwidth=2 expandtab
-
-" Multibyte
-if has('multi_byte')
-  " set listchars=trail:·,tab:\|\ ,eol:¶,extends:→,precedes:←,nbsp:×
-  set listchars=trail:·,tab:\·\ ,extends:→,precedes:←,nbsp:×
-  set list
-  " Vertical split chars
-  set fillchars=stl:\ ,stlnc:\ ,vert:│
-  if has('patch-7.4.338')
-    let &sbr = nr2char(8618).' ' " Show ↪ at the beginning of wrapped lines
-    set breakindent
-    set breakindentopt=sbr
-  endif
-endif
-
-" split windows
-noremap <leader>s <C-w>v<C-w>l
-" move between windows
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
-
-
-" Tab navigation
-nnoremap th  :tabfirst<CR>
-nnoremap tj  :tabnext<CR>
-nnoremap tk  :tabprev<CR>
-nnoremap tl  :tablast<CR>
-nnoremap tt  :tabedit<Space>
-nnoremap tn  :tabnew<CR>
-nnoremap tm  :tabm<Space>
-nnoremap td  :tabclose<CR>
-" Alternatively use
-"nnoremap th :tabnext<CR>
-"nnoremap tl :tabprev<CR>
-"nnoremap tn :tabnew<CR>
 
 
 " Color
