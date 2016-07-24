@@ -144,6 +144,8 @@ Plug 'critiqjo/lldb.nvim'
 
 Plug 'eugen0329/vim-esearch'
 
+Plug 'KabbAmine/zeavim.vim'
+
 "Plug 'neomake/neomake'
 Plug 'scrooloose/syntastic'
   set statusline+=%#warningmsg#
