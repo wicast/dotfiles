@@ -104,6 +104,8 @@ Plug 'luochen1990/rainbow'
 
 Plug 'jszakmeister/vim-togglecursor'
 
+Plug 'mhinz/vim-startify'
+
 Plug 'vim-scripts/fcitx.vim'
 
 " Show a diff via Vim sign column
@@ -189,6 +191,11 @@ Plug 'zchee/deoplete-clang'
 "   let g:deoplete#sources#cpp#arduino_path = '/usr/share/arduino'
 
 Plug 'zchee/deoplete-jedi'
+
+" Languages
+" Plug 'beyondmarc/opengl.vim'
+Plug 'tikhomirov/vim-glsl'
+
 call plug#end()
 
 
