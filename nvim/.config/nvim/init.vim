@@ -15,6 +15,9 @@ set pastetoggle=<F10>
 
 set colorcolumn=81
 
+set foldmethod=syntax
+set foldlevelstart=20
+
 " Clipboard
 set clipboard+=unnamedplus
 
@@ -78,6 +81,28 @@ Plug 'tomtom/tcomment_vim'
 
 Plug 'luochen1990/rainbow'
   let g:rainbow_active = 1
+  let g:rainbow_conf = {
+  \   'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+  \   'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
+  \   'operators': '_,_',
+  \   'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+  \   'separately': {
+  \       '*': {},
+  \       'tex': {
+  \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/'],
+  \       },
+  \       'lisp': {
+  \           'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
+  \       },
+  \       'vim': {
+  \           'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/ fold', 'start=/(/ end=/)/ containedin=vimFuncBody', 'start=/\[/ end=/\]/ containedin=vimFuncBody', 'start=/{/ end=/}/ fold containedin=vimFuncBody'],
+  \       },
+  \       'html': {
+  \           'parentheses': ['start=/\v\<((area|base|br|col|embed|hr|img|input|keygen|link|menuitem|meta|param|source|track|wbr)[ >])@!\z([-_:a-zA-Z0-9]+)(\s+[-_:a-zA-Z0-9]+(\=("[^"]*"|'."'".'[^'."'".']*'."'".'|[^ '."'".'"><=`]*))?)*\>/ end=#</\z1># fold'],
+  \       },
+  \       'css': 0,
+  \   }
+  \}
 
 " Plug 'kien/rainbow_parentheses.vim'
 "   let g:rbpt_colorpairs = [
@@ -146,22 +171,29 @@ Plug 'eugen0329/vim-esearch'
 
 Plug 'KabbAmine/zeavim.vim'
 
-"Plug 'neomake/neomake'
-Plug 'scrooloose/syntastic'
-  set statusline+=%#warningmsg#
-  set statusline+=%{SyntasticStatuslineFlag()}
-  set statusline+=%*
+Plug 'neomake/neomake'
+  autocmd! BufWritePost * Neomake
+  let g:neomake_cpp_clang_maker = {
+    \ 'exe':'clang',
+    \ 'args':['-std=c++11'],
+    \ }
+  let g:neomake_cpp_enable_makers = ['clang']
 
-  let g:syntastic_always_populate_loc_list = 1
-  let g:syntastic_auto_loc_list = 1
-  let g:syntastic_check_on_open = 1
-  let g:syntastic_check_on_wq = 0
-
-" let g:syntastic_cpp_checkers = ['clang_check']
-  let g:syntastic_cpp_compiler = 'clang++'
-  let g:syntastic_cpp_compiler_options = '-std=c++11'
-
-  let g:syntastic_python_checkers = ['python']
+" Plug 'scrooloose/syntastic'
+"   set statusline+=%#warningmsg#
+"   set statusline+=%{SyntasticStatuslineFlag()}
+"   set statusline+=%*
+"
+"   let g:syntastic_always_populate_loc_list = 1
+"   let g:syntastic_auto_loc_list = 1
+"   " let g:syntastic_check_on_open = 1
+"   let g:syntastic_check_on_wq = 0
+"
+" " let g:syntastic_cpp_checkers = ['clang_check']
+"   let g:syntastic_cpp_compiler = 'clang++'
+"   let g:syntastic_cpp_compiler_options = '-std=c++11'
+"
+"   let g:syntastic_python_checkers = ['python']
 
 Plug 'jiangmiao/auto-pairs'
   " let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"' , '`':'`' , '<':'>'}
