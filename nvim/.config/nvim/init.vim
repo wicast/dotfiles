@@ -26,7 +26,7 @@ let mapleader=","
 " Tab key setup
 set tabstop=4 shiftwidth=4
 " Different tab of filetypes
-autocmd FileType c,cpp setl tabstop=2 shiftwidth=2 expandtab
+autocmd FileType c,cpp,cc setl tabstop=2 shiftwidth=2 expandtab
 
 " Multibyte
 if has('multi_byte')
@@ -41,6 +41,18 @@ if has('multi_byte')
     set breakindentopt=sbr
   endif
 endif
+
+" vim -b : edit binary using xxd-format!
+augroup Binary
+  au!
+  au BufReadPre  *.bin let &bin=1
+  au BufReadPost *.bin if &bin | %!xxd
+  au BufReadPost *.bin set ft=xxd | endif
+  au BufWritePre *.bin if &bin | %!xxd -r
+  au BufWritePre *.bin endif
+  au BufWritePost *.bin if &bin | %!xxd
+  au BufWritePost *.bin set nomod | endif
+augroup END
 
 " split windows
 noremap <leader>s <C-w>v<C-w>l
@@ -141,6 +153,7 @@ Plug 'tpope/vim-surround'
 Plug 'scrooloose/nerdtree'
   let NERDTreeQuitOnOpen=1
   nmap <leader>e :NERDTreeToggle<CR>
+  let g:NERDTreeMouseMode=3
 
 " Snips
 Plug 'SirVer/ultisnips'
@@ -220,6 +233,8 @@ Plug 'zchee/deoplete-clang'
   let g:deoplete#sources#clang#libclang_path = "/usr/lib/libclang.so"
   let g:deoplete#sources#clang#clang_header ="/usr/include/clang/"
   let g:deoplete#sources#clang#std = {'c': 'c11', 'cpp': 'c++11', 'objc': 'c11', 'objcpp': 'c++1z'}
+  let g:deoplete#sources#clang#sort_algo = "priority"
+  " let g:deoplete#sources#clang#clang_complete_database = "~/testdb"
 "
 " Plug 'kiddos/deoplete-cpp'
 "   let g:deoplete#sources#cpp#arduino_path = '/usr/share/arduino'
@@ -229,6 +244,11 @@ Plug 'zchee/deoplete-jedi'
 " Languages
 " Plug 'beyondmarc/opengl.vim'
 Plug 'tikhomirov/vim-glsl'
+
+Plug 'arakashic/chromatica.nvim'
+  let g:chromatica#libclang_path='/usr/lib/libclang.so'
+  let g:chromatica#enable_at_startup = 1
+  " let g:chromatica#responsive_mode=1
 
 call plug#end()
 
