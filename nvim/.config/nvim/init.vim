@@ -186,11 +186,8 @@ Plug 'KabbAmine/zeavim.vim'
 
 Plug 'neomake/neomake'
   autocmd! BufWritePost * Neomake
-  let g:neomake_cpp_clang_maker = {
-    \ 'exe':'clang',
-    \ 'args':['-std=c++11'],
-    \ }
-  let g:neomake_cpp_enable_makers = ['clang']
+  let g:neomake_cpp_enabled_makers = ['clang']
+  let g:neomake_cpp_clang_args = ["-std=c++11", "-Wextra", "-Wall", "-fsanitize=undefined","-g"]
 
 " Plug 'scrooloose/syntastic'
 "   set statusline+=%#warningmsg#
