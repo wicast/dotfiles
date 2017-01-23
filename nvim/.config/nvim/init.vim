@@ -238,6 +238,8 @@ Plug 'zchee/deoplete-clang'
 
 Plug 'zchee/deoplete-jedi'
 
+Plug 'artur-shaik/vim-javacomplete2'
+
 " Languages
 " Plug 'beyondmarc/opengl.vim'
 Plug 'tikhomirov/vim-glsl'
