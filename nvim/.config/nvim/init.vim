@@ -157,7 +157,7 @@ Plug 'scrooloose/nerdtree'
 
 " Snips
 Plug 'SirVer/ultisnips'
-  let g:UltiSnipsExpandTrigger='<M-cr>'
+  let g:UltiSnipsExpandTrigger='<M-CR>'
   let g:UltiSnipsJumpForwardTrigger='<c-b>'
   let g:UltiSnipsJumpBackwardTrigger='<c-f>'
 
@@ -253,10 +253,10 @@ Plug 'artur-shaik/vim-javacomplete2'
 " Plug 'beyondmarc/opengl.vim'
 Plug 'tikhomirov/vim-glsl'
 
-Plug 'arakashic/chromatica.nvim'
-  let g:chromatica#libclang_path='/usr/lib/libclang.so'
-  let g:chromatica#enable_at_startup = 1
-  " let g:chromatica#responsive_mode=1
+" Plug 'arakashic/chromatica.nvim'
+"   let g:chromatica#libclang_path='/usr/lib/libclang.so'
+"   let g:chromatica#enable_at_startup = 1
+"   " let g:chromatica#responsive_mode=1
 
 call plug#end()
 
