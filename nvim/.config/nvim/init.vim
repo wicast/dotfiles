@@ -157,7 +157,7 @@ Plug 'scrooloose/nerdtree'
 
 " Snips
 Plug 'SirVer/ultisnips'
-  let g:UltiSnipsExpandTrigger='<tab><cr>'
+  let g:UltiSnipsExpandTrigger='<M-cr>'
   let g:UltiSnipsJumpForwardTrigger='<c-b>'
   let g:UltiSnipsJumpBackwardTrigger='<c-f>'
 
@@ -239,6 +239,15 @@ Plug 'zchee/deoplete-clang'
 Plug 'zchee/deoplete-jedi'
 
 Plug 'artur-shaik/vim-javacomplete2'
+  autocmd FileType java setlocal omnifunc=javacomplete#Complete
+  nmap <F4> <Plug>(JavaComplete-Imports-AddSmart)
+  imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
+  nmap <F5> <Plug>(JavaComplete-Imports-Add)
+  imap <F5> <Plug>(JavaComplete-Imports-Add)
+  nmap <F6> <Plug>(JavaComplete-Imports-AddMissing)
+  imap <F6> <Plug>(JavaComplete-Imports-AddMissing)
+  nmap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
+  imap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
 
 " Languages
 " Plug 'beyondmarc/opengl.vim'
