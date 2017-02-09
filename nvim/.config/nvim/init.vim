@@ -209,6 +209,14 @@ Plug 'neomake/neomake'
 Plug 'jiangmiao/auto-pairs'
   " let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"' , '`':'`' , '<':'>'}
 
+" Alignment
+Plug 'junegunn/vim-easy-align'
+  " Start interactive EasyAlign in visual mode (e.g. vipga)
+  xmap ga <Plug>(EasyAlign)
+
+  " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+  nmap ga <Plug>(EasyAlign)
+
 Plug 'Shougo/deoplete.nvim'
   let g:deoplete#enable_at_startup = 1
 
