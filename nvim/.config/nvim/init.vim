@@ -27,6 +27,7 @@ let mapleader=","
 set tabstop=4 shiftwidth=4
 " Different tab of filetypes
 autocmd FileType c,cpp,cc setl tabstop=2 shiftwidth=2 expandtab
+autocmd FileType java setl tabstop=4 shiftwidth=4 expandtab
 
 " Multibyte
 if has('multi_byte')
