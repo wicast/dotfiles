@@ -1,5 +1,10 @@
 source ~/.bash_profile
-source ~/.zplug/init.zsh
+
+if [ ! -f ~/.zplug/init.zsh ]; then
+	source /usr/share/zsh/scripts/zplug/init.zsh
+else	source ~/.zplug/init.zsh
+fi
+
 
 zplug "zsh-users/zsh-history-substring-search"
 
