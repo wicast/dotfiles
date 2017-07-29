@@ -80,7 +80,7 @@ nnoremap td  :tabclose<CR>
 
 
 "Plugins List
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin('~/.local/share/nvim/plugged')
 
 Plug 'flazz/vim-colorschemes'
 
@@ -269,9 +269,7 @@ Plug 'tikhomirov/vim-glsl'
 
 call plug#end()
 
-
-
 " Color
 " colorscheme antares
-colorscheme railscasts
+  colorscheme railscasts
 " highlight Normal ctermbg=none
