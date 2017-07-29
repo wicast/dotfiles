@@ -1,4 +1,4 @@
-source ~/.bash_profile
+#source ~/.bash_profile
 
 if [ ! -f ~/.zplug/init.zsh ]; then
 	source /usr/share/zsh/scripts/zplug/init.zsh
@@ -52,3 +52,7 @@ if [ -f /home/wicast/.tnsrc ]; then
     source /home/wicast/.tnsrc 
 fi
 ###-tns-completion-end-###
+
+if which ruby >/dev/null && which gem >/dev/null; then
+    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+fi
