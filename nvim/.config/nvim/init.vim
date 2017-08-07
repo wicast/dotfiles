@@ -152,9 +152,12 @@ Plug 'mhinz/vim-signify'
 Plug 'tpope/vim-surround'
 
 Plug 'scrooloose/nerdtree'
-  let NERDTreeQuitOnOpen=1
+  " let NERDTreeQuitOnOpen=1
   nmap <leader>e :NERDTreeToggle<CR>
   let g:NERDTreeMouseMode=3
+
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
 
 " Snips
 Plug 'SirVer/ultisnips'
@@ -208,6 +211,10 @@ Plug 'neomake/neomake'
 
 Plug 'jiangmiao/auto-pairs'
   " let g:AutoPairs = {'(':')', '[':']', '{':'}',"'":"'",'"':'"' , '`':'`' , '<':'>'}
+
+Plug 'elixir-lang/vim-elixir'
+Plug 'thinca/vim-ref'
+" Plug 'awetzel/elixir.nvim', { 'do': 'yes \| ./install.sh' }
 
 " Alignment
 Plug 'junegunn/vim-easy-align'
@@ -273,3 +280,5 @@ call plug#end()
 " colorscheme antares
   colorscheme railscasts
 " highlight Normal ctermbg=none
+
+autocmd VimEnter * NERDTree
