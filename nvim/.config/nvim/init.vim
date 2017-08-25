@@ -11,6 +11,8 @@ set fileencodings=utf-8,sjis,cp936,gb18030,big5,cp1251,euc-jp,latin1
 
 set title
 
+set mouse=a
+
 set pastetoggle=<F10>
 
 set colorcolumn=81
@@ -65,14 +67,14 @@ nnoremap <C-l> <C-w>l
 
 
 " Tab navigation
-nnoremap th  :tabfirst<CR>
-nnoremap tj  :tabnext<CR>
-nnoremap tk  :tabprev<CR>
-nnoremap tl  :tablast<CR>
-nnoremap tt  :tabedit<Space>
-nnoremap tn  :tabnew<CR>
-nnoremap tm  :tabm<Space>
-nnoremap td  :tabclose<CR>
+nnoremap th  :bfirst<CR>
+nnoremap tj  :bnext<CR>
+nnoremap tk  :bprev<CR>
+nnoremap tl  :blast<CR>
+nnoremap tt  :bedit<Space>
+nnoremap tn  :bnew<CR>
+nnoremap tm  :bm<Space>
+nnoremap td  :bclose<CR>
 " Alternatively use
 "nnoremap th :tabnext<CR>
 "nnoremap tl :tabprev<CR>
@@ -274,6 +276,10 @@ Plug 'tikhomirov/vim-glsl'
 "   let g:chromatica#enable_at_startup = 1
 "   " let g:chromatica#responsive_mode=1
 
+" Elixir
+Plug 'slashmili/alchemist.vim'
+
+
 call plug#end()
 
 " Color
@@ -281,7 +287,7 @@ call plug#end()
   colorscheme railscasts
 " highlight Normal ctermbg=none
 
-autocmd vimenter * NERDTree | wincmd p
 autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | wincmd p | endif
+" autocmd vimenter * NERDTree | wincmd p
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
