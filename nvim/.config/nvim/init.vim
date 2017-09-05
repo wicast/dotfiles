@@ -153,6 +153,8 @@ Plug 'mhinz/vim-signify'
 
 Plug 'tpope/vim-surround'
 
+Plug 'Yggdroot/indentLine'
+
 Plug 'scrooloose/nerdtree'
   " let NERDTreeQuitOnOpen=1
   nmap <leader>e :NERDTreeToggle<CR>
