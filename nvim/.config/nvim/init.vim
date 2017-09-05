@@ -74,7 +74,7 @@ nnoremap tl  :blast<CR>
 nnoremap tt  :bedit<Space>
 nnoremap tn  :bnew<CR>
 nnoremap tm  :bm<Space>
-nnoremap td  :bclose<CR>
+nnoremap td  :bn<cr>:bd #<cr>:bp<cr>
 " Alternatively use
 "nnoremap th :tabnext<CR>
 "nnoremap tl :tabprev<CR>
@@ -277,7 +277,7 @@ Plug 'tikhomirov/vim-glsl'
 "   " let g:chromatica#responsive_mode=1
 
 " Elixir
-Plug 'slashmili/alchemist.vim'
+Plug 'slashmili/alchemist.vim', {'tag': '*'}
 
 
 call plug#end()
@@ -289,5 +289,5 @@ call plug#end()
 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | wincmd p | endif
-" autocmd vimenter * NERDTree | wincmd p
+" " autocmd vimenter * NERDTree | wincmd p
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
