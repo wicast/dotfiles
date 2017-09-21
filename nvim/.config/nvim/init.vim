@@ -7,11 +7,14 @@ set autoread
 
 set smartcase
 
+set hidden
+
 set fileencodings=utf-8,sjis,cp936,gb18030,big5,cp1251,euc-jp,latin1
 
 set title
 
 set mouse=a
+set foldcolumn=1
 
 set pastetoggle=<F10>
 
@@ -68,8 +71,8 @@ nnoremap <C-l> <C-w>l
 
 " Tab navigation
 nnoremap th  :bfirst<CR>
-nnoremap tj  :bnext<CR>
-nnoremap tk  :bprev<CR>
+nnoremap tj  :bprev<CR>
+nnoremap tk  :bnext<CR>
 nnoremap tl  :blast<CR>
 nnoremap tt  :bedit<Space>
 nnoremap tn  :bnew<CR>
@@ -144,6 +147,8 @@ Plug 'luochen1990/rainbow'
 
 Plug 'jszakmeister/vim-togglecursor'
 
+Plug 'ctrlpvim/ctrlp.vim'
+
 Plug 'mhinz/vim-startify'
 
 Plug 'vim-scripts/fcitx.vim'
@@ -182,6 +187,23 @@ Plug 'mbbill/undotree'
 
 Plug 'majutsushi/tagbar'
   nmap <leader>t :TagbarToggle<CR>
+  let g:tagbar_type_elixir = {
+    \ 'ctagstype' : 'elixir',
+    \ 'kinds' : [
+        \ 'f:functions',
+        \ 'functions:functions',
+        \ 'c:callbacks',
+        \ 'd:delegates',
+        \ 'e:exceptions',
+        \ 'i:implementations',
+        \ 'a:macros',
+        \ 'o:operators',
+        \ 'm:modules',
+        \ 'p:protocols',
+        \ 'r:records',
+        \ 't:tests'
+    \ ]
+\ }
 
 " Remember last poistion
 Plug 'dietsche/vim-lastplace'
@@ -257,6 +279,14 @@ Plug 'zchee/deoplete-clang'
 "   let g:deoplete#sources#cpp#arduino_path = '/usr/share/arduino'
 
 Plug 'zchee/deoplete-jedi'
+
+Plug 'mileszs/ack.vim'
+  if executable('ag')
+    let g:ackprg = 'ag --vimgrep'
+  endif
+
+Plug 'mjakl/vim-asciidoc'
+  let g:vim_asciidoc_initial_foldlevel=20
 
 Plug 'artur-shaik/vim-javacomplete2'
   autocmd FileType java setlocal omnifunc=javacomplete#Complete
