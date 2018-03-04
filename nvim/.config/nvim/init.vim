@@ -149,6 +149,8 @@ Plug 'jszakmeister/vim-togglecursor'
 
 Plug 'ctrlpvim/ctrlp.vim'
 
+Plug 'tacahiroy/ctrlp-funky'
+
 Plug 'mhinz/vim-startify'
 
 Plug 'vim-scripts/fcitx.vim'
@@ -279,6 +281,27 @@ Plug 'zchee/deoplete-clang'
 "   let g:deoplete#sources#cpp#arduino_path = '/usr/share/arduino'
 
 Plug 'zchee/deoplete-jedi'
+  let g:deoplete#sources#jedi#show_docstring = 1
+
+Plug 'racer-rust/vim-racer'
+
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
+set hidden
+
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ 'javascript': ['javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['javascript-typescript-stdio'],
+    \ }
+
+nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+
 
 Plug 'mileszs/ack.vim'
   if executable('ag')
@@ -288,20 +311,21 @@ Plug 'mileszs/ack.vim'
 Plug 'mjakl/vim-asciidoc'
   let g:vim_asciidoc_initial_foldlevel=20
 
-Plug 'artur-shaik/vim-javacomplete2'
-  autocmd FileType java setlocal omnifunc=javacomplete#Complete
-  nmap <F4> <Plug>(JavaComplete-Imports-AddSmart)
-  imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
-  nmap <F5> <Plug>(JavaComplete-Imports-Add)
-  imap <F5> <Plug>(JavaComplete-Imports-Add)
-  nmap <F6> <Plug>(JavaComplete-Imports-AddMissing)
-  imap <F6> <Plug>(JavaComplete-Imports-AddMissing)
-  nmap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
-  imap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
+" Plug 'artur-shaik/vim-javacomplete2'
+"   autocmd FileType java setlocal omnifunc=javacomplete#Complete
+"   nmap <F4> <Plug>(JavaComplete-Imports-AddSmart)
+"   imap <F4> <Plug>(JavaComplete-Imports-AddSmart)
+"   nmap <F5> <Plug>(JavaComplete-Imports-Add)
+"   imap <F5> <Plug>(JavaComplete-Imports-Add)
+"   nmap <F6> <Plug>(JavaComplete-Imports-AddMissing)
+"   imap <F6> <Plug>(JavaComplete-Imports-AddMissing)
+"   nmap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
+"   imap <F7> <Plug>(JavaComplete-Imports-RemoveUnused)
 
 " Languages
 " Plug 'beyondmarc/opengl.vim'
 Plug 'tikhomirov/vim-glsl'
+autocmd! BufNewFile,BufRead *.vs,*.fs set ft=glsl
 
 " Plug 'arakashic/chromatica.nvim'
 "   let g:chromatica#libclang_path='/usr/lib/libclang.so'

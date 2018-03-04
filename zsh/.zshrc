@@ -28,7 +28,8 @@ zplug "plugins/zsh-navigation-tools",  from:oh-my-zsh
 
 
 setopt prompt_subst
-zplug "caiogondim/bullet-train-oh-my-zsh-theme",  as:theme
+zplug "caiogondim/bullet-train.zsh", use:bullet-train.zsh-theme, defer:3 # defer until other plugins like oh-my-zsh is loaded
+
 
 
 
@@ -40,19 +41,20 @@ if ! zplug check --verbose; then
 fi
 
 # Then, source plugins and add commands to $PATH
-#zplug load --verbose
-zplug load
+zplug load --verbose
+# zplug load
 
 setopt auto_cd
 
 alias ls='ls --color=auto'
 
-###-tns-completion-start-###
-if [ -f /home/wicast/.tnsrc ]; then 
-    source /home/wicast/.tnsrc 
-fi
-###-tns-completion-end-###
-
-if which ruby >/dev/null && which gem >/dev/null; then
-    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
-fi
+####-tns-completion-start-###
+#if [ -f /home/wicast/.tnsrc ]; then 
+#    source /home/wicast/.tnsrc 
+#fi
+####-tns-completion-end-###
+#
+#if which ruby >/dev/null && which gem >/dev/null; then
+#    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+#fi
+#
